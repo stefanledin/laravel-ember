@@ -33,13 +33,18 @@
 				<h2>Pågående tippningar</h2>
 				<ul>
 				{{#each game in this}}
-					<li>{{#link-to 'games.single' game}} {{ game.name }} {{/link-to}}</li>
+					<li>{{#link-to 'game' game}} {{ game.name }} {{/link-to}}</li>
 				{{/each}}
 				</ul>
 			</script>
 
-			<script type="text/x-handlebars" id="games/single">
-				<h2>Tips: {{ name }}</h2>
+			<script type="text/x-handlebars" id="game">
+				<h2>Tips: {{ this.name }}</h2>
+				<ul>
+				{{#each prediction in this.predictions}}
+					<li>{{ prediction.prediction }}</li>
+				{{/each}}
+				</ul>
 			</script>
 			
 		</div>

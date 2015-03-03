@@ -8,14 +8,18 @@
 	 * Routes
 	 */
 	App.Router.map(function () {
-		this.resource('games', function () {
-			this.route('single', {path: '/:game_id'});
-		});
+		this.resource('games');
+		this.resource('game', {path: '/games/:game_id'});
 	});
 	App.GamesRoute = Ember.Route.extend({
-		model: function (params) {
+		model: function () {
 			return Ember.$.getJSON('/games');
 		}
 	});
+	App.GameRoute = Ember.Route.extend({
+		model: function (params) {
+			return Ember.$.getJSON('/games/1');
+		}
+	})
 
 })(window, document, jQuery);

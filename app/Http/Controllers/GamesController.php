@@ -47,7 +47,7 @@ class GamesController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		return Game::find($id)->with('predictions.user')->get();
 	}
 
 	/**
