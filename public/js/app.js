@@ -1,25 +1,29 @@
-;(function (w, d, $, undefined) {
-	
++(function (angular) {
 	'use strict';
-	
-	window.App = Ember.Application.create();
 
-	/**
-	 * Routes
-	 */
-	App.Router.map(function () {
-		this.resource('games');
-		this.resource('game', {path: '/games/:game_id'});
-	});
-	App.GamesRoute = Ember.Route.extend({
-		model: function () {
-			return Ember.$.getJSON('/games');
-		}
-	});
-	App.GameRoute = Ember.Route.extend({
-		model: function (params) {
-			return Ember.$.getJSON('/games/1');
-		}
+	var mmtipset = angular.module('multimediatipset', ['ngRoute'])
+	
+	.controller('GamesController', function ($scope, $http, $routeParams) {
+		var _this = this;
+		console.log($routeParams);
+		$http.get('/games').success(function (data) {
+			_this.games = data;
+			_this.onGoing = data.length;
+		});
+	})
+	.controller('GameController', function ($scope, $routeParams) {
+		console.log($routeParams);
 	})
 
-})(window, document, jQuery);
+	.config(function ($routeProvider) {
+		$routeProvider
+			.when('/', {
+				controller: 'GamesController'
+			})
+			.when('/games/:game_id', {
+				controller: 'GameController'
+			});
+	});
+	
+})(window.angular);
+

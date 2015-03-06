@@ -14,7 +14,33 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
-		// $this->call('UserTableSeeder');
+		$this->call('GamesTableSeeder');
 	}
+
+}
+
+class GamesTableSeeder extends Seeder {
+
+    public function run()
+    {
+        $user = multimediatipset\User::create([
+        	'uid' => '12345',
+        	'username' => 'stefanledin',
+        	'email' => 'stefan.ledin@ordbild.se'
+    	]);
+    	$game = multimediatipset\Game::create([
+    		'name' => 'Färjestad - Luleå',
+    		'type' => 'resultat',
+    		'status' => 1,
+    		'price' => '20'
+		]);
+		$prediction = multimediatipset\Prediction::create([
+			'prediction' => '3-1'
+		]);
+
+		#$prediction->user()->save($user);
+		#$game->predictions()->save($prediction);
+		
+    }
 
 }

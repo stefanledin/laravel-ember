@@ -8,7 +8,7 @@
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<link href="css/app.css" rel="stylesheet">
 	</head>
-	<body>
+	<body ng-app="multimediatipset">
 
 		<div class="container-fluid">
 		
@@ -21,36 +21,25 @@
 			</nav>
 
 			<div class="row">
-				<div class="col-xs-12">
+				<div class="col-xs-12" ng-controller="GamesController as games">
+					<h1>Pågående: {{ games.onGoing }}</h1>
+					<ul>
+						<li ng-repeat="game in games.games">{{ game.name }}</li>
+					</ul>
 				</div>
 			</div>
 
-			<script type="text/x-handlebars" id="index">
-				<h1>multimediatipset.com</h1>
-			</script>
-
-			<script type="text/x-handlebars" id="games">
-				<h2>Pågående tippningar</h2>
-				<ul>
-				{{#each game in this}}
-					<li>{{#link-to 'game' game}} {{ game.name }} {{/link-to}}</li>
-				{{/each}}
-				</ul>
-			</script>
-
-			<script type="text/x-handlebars" id="game">
-				<h2>Tips: {{ this.name }}</h2>
-				<ul>
-				{{#each prediction in this.predictions}}
-					<li>{{ prediction.prediction }}</li>
-				{{/each}}
-				</ul>
-			</script>
-			
+			<div class="row">
+				<div class="col-xs-12" ng-controller="GameController as game">
+					
+				</div>
+			</div>
+				
 		</div>
+
 		<script src="js/jquery.js"></script>
-		<script src="js/ember-1.10.0.debug.js"></script>
-		<script src="js/ember-template-compiler-1.10.0.js"></script>
+		<script src="js/angular.min.js"></script>
+		<script src="js/angular-route.min.js"></script>
 		<script src="js/app.js"></script>
 	</body>
 </html>
