@@ -42,6 +42,7 @@
 				<h2>Tips: {{ this.name }}</h2>
 				<ul>
 				{{#each prediction in this.predictions}}
+					<li>{{ prediction.user_id }}</li>
 					<li>{{ prediction.prediction }}</li>
 				{{/each}}
 				</ul>

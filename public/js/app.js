@@ -18,7 +18,9 @@
 	});
 	App.GameRoute = Ember.Route.extend({
 		model: function (params) {
-			return Ember.$.getJSON('/games/1');
+			var data = Ember.$.getJSON('/games/1');
+			console.log(data);
+			return data;
 		}
 	})
 
