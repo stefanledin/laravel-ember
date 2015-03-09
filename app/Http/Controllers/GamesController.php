@@ -34,9 +34,9 @@ class GamesController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		echo $request->input('prediction'); die();
 	}
 
 	/**

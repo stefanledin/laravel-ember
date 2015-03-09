@@ -1,0 +1,19 @@
+##Typer av tippningar
+- Resultat (1/X/2)
+- Resultat (1-1)
+- Resultat (1. XXX 2. XXX 3. XXX)
+- Matchserie (4-0, 3-4)
+- Matchserier
+- Sluttabeller
+
+### - Tabellen
+- Namn
+- Typ (resultat/placering/matchserier/matchserie)
+- Status (Öppen, stängd, avslutad)
+- Vinnare
+- Kostnad
+
+##Tips
+- Tipset
+- ID:Tippning
+- ID:Användare

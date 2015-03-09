@@ -21,16 +21,7 @@
 			</nav>
 
 			<div class="row">
-				<div class="col-xs-12" ng-controller="GamesController as games">
-					<h1>Pågående: {{ games.onGoing }}</h1>
-					<ul>
-						<li ng-repeat="game in games.games">{{ game.name }}</li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-xs-12" ng-controller="GameController as game">
+				<div class="col-xs-12" ng-view>
 					
 				</div>
 			</div>
